@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Arte</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Menu Hamburguer -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <div class="navbar__logo">
+                <a href="index.html">Galeria</a>
+            </div>
+            <div class="navbar__toggle" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="navbar__menu" id="navMenu">
+                <li class="navbar__item">
+                    <a href="pages/Somos.html" class="navbar__link">Quem Somos</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="pages/fotos.html" class="navbar__link">Obras</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Cabeçalho -->
+    <header class="hero">
+        <div class="hero__badge">Exposição 2026</div>
+        <h1 class="titulo-colorido">
+            <span class="c1">G</span>
+            <span class="c2">a</span>
+            <span class="c3">l</span>
+            <span class="c4">e</span>
+            <span class="c5">r</span>
+            <span class="c6">i</span>
+            <span class="c7">a</span>
+        </h1>
+        <p class="hero__subtitle">Arte que expressa sentimentos e histórias</p>
+        <div class="hero__cta">
+            <a href="pages/fotos.html" class="botao">Ver mais obras</a>
+            <a href="pages/Somos.html" class="botao">Sobre a curadoria</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Quem Somos -->
+        <section class="secao" id="sobre">
+            <div class="secao__inner">
+                <h2>Quem Somos</h2>
+                <p>
+                    Somos um espaço criado para compartilhar desenhos feitos com carinho,
+                     imaginação e alegria. Aqui, a arte é uma forma de expressar sentimentos, 
+                     contar histórias e ver o mundo com olhos de criança 🎨✨
+                </p>
+            </div>
+        </section>
+
+        <!-- Galeria -->
+        <section class="galeria" id="galeria">
+            <figure class="card">
+                <img src="https://res.cloudinary.com/dtxiyeitw/image/upload/v1768068198/imagem_2026-01-10_150313581_cyr2my.png" alt="Obra 1">
+                <figcaption>Horizontes em movimento</figcaption>
+            </figure>
+            <figure class="card">
+                <img src="https://res.cloudinary.com/dtxiyeitw/image/upload/v1768068301/imagem_2026-01-10_150458579_n3j8z5.png" alt="Obra 2">
+                <figcaption>Luz que resiste</figcaption>
+            </figure>
+            <figure class="card">
+                <img src="https://res.cloudinary.com/dtxiyeitw/image/upload/v1768068344/imagem_2026-01-10_150542572_vguujf.png" alt="Obra 3">
+                <figcaption>Silêncio das formas</figcaption>
+            </figure>
+            <figure class="card">
+                <img src="https://res.cloudinary.com/dtxiyeitw/image/upload/v1768068370/imagem_2026-01-10_150608681_a5x01k.png" alt="Obra 4">
+                <figcaption>Memórias líquidas</figcaption>
+            </figure>
+        </section>
+
+        <!-- Missão -->
+        <section class="secao destaque">
+            <div class="secao__inner">
+                <h2>Nossa Missão</h2>
+                <p>
+                    Minha missão é usar o desenho para mostrar tudo o que eu sinto e penso. 
+                    Quando eu desenho, coloco no papel minha alegria, minha imaginação e as ideias que vêm na minha cabeça. 
+                    Cada cor que eu escolho e cada traço que faço contam um pedacinho da minha história.<br>
+                    Eu quero que meus desenhos façam as pessoas sorrirem, sonharem e sentirem coisas boas. 
+                    Através da arte, eu posso falar sem palavras e mostrar como eu vejo o mundo: cheio de cores, sentimentos e imaginação. 
+                    Desenhar é o meu jeito favorito de me expressar e de espalhar felicidade 🎨✨
+                </p>
+            </div>
+        </section>
+
+        <!-- Visite -->
+        <section class="secao destaque">
+            <div class="secao__inner">
+                <h2>Visite a exposição</h2>
+                <p>
+                    Participe de uma visita guiada para conhecer a coleção completa e descobrir os bastidores de cada obra.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>© 2026 Galeria de Arte - Todos os direitos reservados</p>
+    </footer>
+
+    <script src="js/lightbox.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,569 @@
+/* =====================
+   RESET E BASE
+   Comentários linha a linha para entender cada regra
+===================== */
+* {
+    margin: 0; /* Remove margem padrão de todos os elementos */
+    padding: 0; /* Remove padding padrão de todos os elementos */
+    box-sizing: border-box; /* Inclui bordas e padding no cálculo de largura/altura */
+}
+
+body {
+    font-family: "Space Grotesk", Arial, sans-serif; /* Tipografia base do site */
+    background: radial-gradient(circle at 20% 20%, #65c9cd 0%, #7d2b84 25%, transparent 40%), /* Mancha circular decorativa à esquerda */
+                radial-gradient(circle at 80% 10%, #c37fd8 0%, #63acaf 22%, transparent 38%), /* Mancha circular decorativa à direita */
+                linear-gradient(135deg, #60c4cd 0%, #240533 70%, #0e111a 100%); /* Degradê de fundo geral */
+    color: #f3f3f3; /* Cor padrão do texto */
+    line-height: 1.6; /* Altura de linha para legibilidade */
+    min-height: 100vh; /* Garante que o body ocupe toda a altura da janela */
+}
+
+body.no-scroll {
+    overflow: hidden; /* Evita scroll de fundo quando o lightbox está aberto */
+}
+
+/* =====================
+   PÁGINA QUEM SOMOS
+===================== */
+body.pagina-sobre .secao {
+    text-align: left; /* Melhor leitura em blocos de texto */
+}
+
+body.pagina-sobre .sobre-texto {
+    max-width: 800px; /* Limita largura para leitura confortável */
+    font-size: 17px; /* Leitura levemente maior */
+    line-height: 1.7; /* Respiro entre linhas */
+    text-align: center; /* Centraliza o texto dos parágrafos */
+    margin-left: auto; /* Centraliza o bloco dentro da largura máxima */
+    margin-right: auto; /* Centraliza o bloco dentro da largura máxima */
+}
+
+body.pagina-sobre .sobre-cards {
+    display: grid; /* Organiza os cards em grid */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Colunas responsivas */
+    gap: 18px; /* Espaço entre cards */
+    margin-top: 16px; /* Espaço acima dos cards */
+}
+
+body.pagina-sobre .sobre-card {
+    background: rgba(255, 255, 255, 0.05); /* Fundo suave */
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Borda leve */
+    border-radius: 14px; /* Cantos arredondados */
+    padding: 16px 18px; /* Espaçamento interno */
+    text-align: center; /* Centraliza textos do card */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18); /* Sombra para profundidade */
+}
+
+body.pagina-sobre .sobre-card h3 {
+    margin-bottom: 8px; /* Espaço abaixo do título */
+    font-size: 18px; /* Tamanho do título do card */
+}
+
+body.pagina-sobre .sobre-card p {
+    line-height: 1.6; /* Leitura confortável no card */
+}
+
+body.pagina-sobre h2 {
+    text-align: center; /* Centraliza títulos da página sobre */
+}
+
+body.pagina-sobre .sobre-tag {
+    display: inline-flex; /* Exibe como selo */
+    align-items: center; /* Centraliza texto verticalmente */
+    gap: 6px; /* Espaço interno entre itens (se houver ícone futuramente) */
+    padding: 6px 12px; /* Respiro do selo */
+    background: rgba(255, 255, 255, 0.08); /* Fundo sutil translúcido */
+    border: 1px solid rgba(255, 255, 255, 0.12); /* Borda suave */
+    border-radius: 999px; /* Formato de pílula */
+    font-size: 12px; /* Texto menor para selo */
+    letter-spacing: 0.08em; /* Espaçamento entre letras */
+    text-transform: uppercase; /* Caixa alta para selo */
+    color: #eaeaea; /* Cor clara */
+    margin-bottom: 10px; /* Espaço abaixo do selo */
+}
+
+body.pagina-sobre .sobre-chips {
+    display: flex; /* Flex para chips */
+    flex-wrap: wrap; /* Permite quebrar linha */
+    gap: 10px; /* Espaço entre chips */
+    margin: 14px 0 6px; /* Espaço vertical ao redor */
+}
+
+body.pagina-sobre .chip {
+    padding: 8px 14px; /* Tamanho do chip */
+    border-radius: 999px; /* Pílula */
+    border: 1px solid rgba(255, 255, 255, 0.18); /* Borda leve */
+    background: rgba(255, 255, 255, 0.06); /* Fundo suave */
+    font-size: 13px; /* Tamanho de texto do chip */
+    color: #f7f7f7; /* Cor clara */
+    letter-spacing: 0.01em; /* Leve espaçamento */
+}
+
+main {
+    display: flex; /* Usa flexbox para organizar as seções principais */
+    flex-direction: column; /* Empilha os elementos verticalmente */
+    gap: 32px; /* Espaçamento entre as seções */
+}
+
+/* =====================
+   CABEÇALHO
+===================== */
+header {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)); /* Sutil brilho por trás do hero */
+    color: #fefefe; /* Cor do texto no cabeçalho */
+    padding: 80px 20px 100px; /* Espaçamento interno melhorado */
+    text-align: center; /* Centraliza conteúdo do cabeçalho */
+    position: relative; /* Permite posicionar pseudo-elementos relativos ao header */
+    overflow: hidden; /* Esconde partes que ultrapassem os limites do cabeçalho */
+    margin-top: 0; /* Remove margem superior */
+}
+
+header::after {
+    content: ""; /* Cria um elemento decorativo via pseudo-elemento */
+    position: absolute; /* Posiciona sobre o header */
+    inset: 0; /* Ocupa toda a área do cabeçalho */
+    background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.14), transparent 45%); /* Brilho suave central */
+    pointer-events: none; /* Não interfere com cliques do usuário */
+}
+
+.hero {
+    max-width: 1100px; /* Largura máxima do conteúdo do hero */
+    margin: 0 auto; /* Centraliza horizontalmente */
+    position: relative; /* Base para elementos posicionados internamente */
+    z-index: 1; /* Garante que o conteúdo fique acima do pseudo-elemento */
+}
+
+.hero__badge {
+    display: inline-block; /* Exibe como bloco em linha (para caber ao lado do texto) */
+    padding: 10px 16px; /* Espaçamento interno do selo */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Borda sutil para destaque */
+    border-radius: 999px; /* Formato de pílula (com cantos totalmente arredondados) */
+    text-transform: uppercase; /* Converte texto para maiúsculas */
+    letter-spacing: 0.08em; /* Espaçamento entre letras para estilo */
+    font-size: 12px; /* Tamanho do texto do selo */
+    color: #ffe6a7; /* Cor do texto do selo */
+    background: rgba(255, 255, 255, 0.05); /* Fundo translúcido do selo */
+}
+
+header h1 {
+    font-family: "Playfair Display", "Space Grotesk", serif; /* Mistura serif para elegância no título */
+    font-size: clamp(42px, 6vw, 72px); /* Escala responsiva do tamanho do título */
+    margin-top: 22px; /* Espaço acima do título */
+}
+
+.hero__subtitle {
+    margin-top: 14px; /* Espaço acima do subtítulo */
+    font-size: 18px; /* Tamanho do subtítulo */
+    color: rgba(255, 255, 255, 0.78); /* Cor levemente mais suave para subtítulo */
+}
+
+.hero__cta {
+    margin-top: 30px; /* Espaço acima do bloco de CTAs */
+    display: flex; /* Usa flexbox para organizar os botões */
+    justify-content: center; /* Centraliza os botões horizontalmente */
+    gap: 14px; /* Espaço entre os botões */
+    flex-wrap: wrap; /* Permite quebrar linha quando não couberem */
+}
+
+/* =====================
+   SEÇÕES DE TEXTO
+===================== */
+.secao {
+    background: rgba(255, 255, 255, 0.02); /* Fundo translúcido para separar seção do fundo */
+    padding: 70px 20px; /* Espaçamento interno da seção */
+    text-align: center; /* Centraliza o conteúdo da seção */
+    backdrop-filter: blur(4px); /* Aplica leve desfoque ao plano de fundo por baixo */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03); /* Linha sutil na base */
+}
+
+.secao h2 {
+    font-size: 32px; /* Tamanho do título da seção */
+    margin-bottom: 24px; /* Espaço abaixo do título */
+    color: #e6e6e6; /* Cor do título da seção */
+    font-family: "Playfair Display", serif; /* Fonte elegante */
+}
+
+.secao p {
+    font-size: 17px; /* Tamanho do parágrafo */
+    max-width: 820px; /* Largura máxima do texto para melhor leitura */
+    margin: 0 auto; /* Centraliza o parágrafo na seção */
+    color: rgba(247, 247, 247, 0.82); /* Cor do texto da seção */
+    line-height: 1.8; /* Altura de linha melhorada para legibilidade */
+}
+
+.secao p strong {
+    color: #ffffff; /* Destaque mais claro */
+    display: block; /* Cada item em sua própria linha */
+    margin-top: 16px; /* Espaço acima de cada item */
+}
+
+/* Destaque */
+.destaque {
+    background: linear-gradient(135deg, rgba(255, 230, 167, 0.15), rgba(216, 187, 255, 0.1)); /* Fundo com leve gradiente para destacar a seção */
+    border-top: 1px solid rgba(255, 255, 255, 0.06); /* Linha sutil no topo da seção */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06); /* Linha sutil na base da seção */
+}
+
+.secao__inner {
+    max-width: 900px; /* Limita a largura do conteúdo interno */
+    margin: 0 auto; /* Centraliza o conteúdo interno */
+}
+
+.secao__cta {
+    display: flex; /* Layout flexível */
+    justify-content: center; /* Centraliza o botão */
+}
+
+/* =====================
+   GALERIA
+===================== */
+.galeria {
+    padding: 40px 20px 60px; /* Espaçamento interno da galeria (topo/lados/base) */
+    display: grid; /* Usa grid para organizar os cards */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Colunas responsivas com largura mínima de 260px */
+    gap: 26px; /* Espaço entre os cards */
+    max-width: 1200px; /* Largura máxima da galeria */
+    margin: 0 auto; /* Centraliza a galeria na página */
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.03); /* Fundo translúcido do card */
+    border: 1px solid rgba(255, 255, 255, 0.06); /* Borda suave ao redor do card */
+    border-radius: 18px; /* Cantos arredondados do card */
+    overflow: hidden; /* Esconde conteúdo que extrapola o card */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidade */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Transições suaves ao interagir */
+}
+
+.card img {
+    width: 100%; /* Faz a imagem ocupar toda a largura do card */
+    display: block; /* Remove espaços em branco abaixo da imagem */
+    transition: transform 0.4s ease; /* Suaviza a animação de zoom ao hover */
+}
+
+.card figcaption {
+    padding: 18px; /* Espaçamento interno da legenda */
+    font-size: 16px; /* Tamanho do texto da legenda */
+    letter-spacing: 0.01em; /* Leve espaçamento entre letras para estética */
+    color: #fefefe; /* Cor do texto da legenda */
+}
+
+.card:hover {
+    transform: translateY(-8px); /* Move o card levemente para cima ao passar o mouse */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.28); /* Aumenta a sombra para destacar o card */
+    border-color: rgba(255, 230, 167, 0.35); /* Realça a borda do card no hover */
+}
+
+.card:hover img {
+    transform: scale(1.04); /* Faz um leve zoom na imagem ao passar o mouse */
+}
+
+/* =====================
+   LIGHTBOX (ZOOM DE IMAGEM)
+===================== */
+.lightbox {
+    position: fixed; /* Fixa no viewport inteiro */
+    inset: 0; /* Ocupa toda a tela */
+    display: flex; /* Centraliza o conteúdo interno */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    background: rgba(0, 0, 0, 0.6); /* Fundo escuro translúcido */
+    backdrop-filter: blur(6px); /* Desfoque do fundo */
+    z-index: 999; /* Fica acima do restante do conteúdo */
+    transition: opacity 0.25s ease; /* Suaviza a aparição/desaparição */
+}
+
+.lightbox.hidden {
+    opacity: 0; /* Deixa invisível quando oculto */
+    pointer-events: none; /* Desativa cliques quando oculto */
+}
+
+.lightbox__backdrop {
+    position: absolute; /* Cobre toda a área para capturar cliques */
+    inset: 0; /* Estende por todo o overlay */
+}
+
+.lightbox__inner {
+    position: relative; /* Base para posicionar o botão de fechar */
+    background: rgba(10, 13, 20, 0.92); /* Fundo da caixa do lightbox */
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Borda sutil */
+    border-radius: 18px; /* Cantos arredondados da caixa */
+    padding: 18px; /* Espaçamento interno */
+    max-width: 90vw; /* Limita largura no desktop */
+    max-height: 90vh; /* Limita altura para não ultrapassar a viewport */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); /* Sombra profunda */
+    display: flex; /* Organiza imagem e legenda em coluna */
+    flex-direction: column; /* Empilha conteúdos verticalmente */
+    gap: 12px; /* Espaço entre imagem e legenda */
+    align-items: center; /* Centraliza conteúdos internos */
+    z-index: 1; /* Fica acima do backdrop interno */
+}
+
+.lightbox__img {
+    max-width: 100%; /* Garante que a imagem não ultrapasse a largura da caixa */
+    max-height: 70vh; /* Mantém altura segura na viewport */
+    border-radius: 12px; /* Arredonda cantos da imagem ampliada */
+    object-fit: contain; /* Mantém proporção da obra */
+}
+
+.lightbox__caption {
+    color: #fefefe; /* Cor do texto da legenda ampliada */
+    font-size: 14px; /* Tamanho do texto da legenda ampliada */
+    text-align: center; /* Centraliza legenda */
+    opacity: 0.85; /* Deixa a legenda um pouco mais suave */
+}
+
+.lightbox__close {
+    position: absolute; /* Posiciona o botão sobre a caixa */
+    top: 10px; /* Distância do topo da caixa */
+    right: 10px; /* Distância da lateral direita da caixa */
+    background: rgba(255, 255, 255, 0.12); /* Fundo translúcido do botão */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borda sutil do botão */
+    color: #ffffff; /* Cor do ícone "×" */
+    width: 32px; /* Largura do botão */
+    height: 32px; /* Altura do botão */
+    border-radius: 50%; /* Formato circular */
+    cursor: pointer; /* Mostra que é clicável */
+    font-size: 18px; /* Tamanho do ícone */
+    line-height: 1; /* Ajusta altura da linha ao ícone */
+    display: grid; /* Centraliza o ícone */
+    place-items: center; /* Centraliza o ícone horizontal e verticalmente */
+    transition: background 0.2s ease, transform 0.2s ease; /* Animações suaves no hover */
+}
+
+.lightbox__close:hover {
+    background: rgba(255, 255, 255, 0.2); /* Realça botão no hover */
+    transform: scale(1.05); /* Aumenta levemente no hover */
+}
+
+/* =====================
+   BOTÃO
+===================== */
+.botao {
+    display: inline-flex; /* Exibe como flex para centralizar conteúdo interno */
+    align-items: center; /* Alinha ícones/texto verticalmente no centro */
+    justify-content: center; /* Centraliza horizontalmente dentro do botão */
+    min-width: 180px; /* Largura mínima do botão */
+    padding: 14px 18px; /* Espaçamento interno do botão */
+    background: linear-gradient(135deg, #67eda1, #f6b7ff); /* Degradê de fundo do botão principal */
+    color: #0b0c10; /* Cor do texto do botão */
+    text-align: center; /* Centraliza o texto */
+    text-decoration: none; /* Remove sublinhado típico de links */
+    border-radius: 999px; /* Deixa o botão com formato de pílula */
+    font-size: 15px; /* Tamanho do texto do botão */
+    font-weight: 700; /* Peso do texto para dar destaque */
+    letter-spacing: 0.01em; /* Leve espaçamento entre letras */
+    transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease; /* Transições no hover/focus */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25); /* Sombra para profundidade */
+}
+
+.botao:hover {
+    transform: translateY(-2px) scale(1.01); /* Eleva e amplia ligeiramente o botão no hover */
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3); /* Aumenta a sombra para realce */
+    filter: saturate(1.1); /* Intensifica as cores do botão */
+}
+
+.botao--ghost {
+    background: transparent; /* Remove fundo sólido do botão fantasma */
+    color: #000000; /* Cor do texto do botão fantasma */
+    background: linear-gradient(135deg, #f6b7ff, #67eda1); /* Degradê fino perceptível ao fundo */
+    border: 1px solid rgba(255, 230, 167, 0.4); /* Borda suave para contorno */
+    box-shadow: none; /* Sem sombra para visual mais leve */
+}
+
+.botao--ghost:hover {
+    border-color: rgba(255, 230, 167, 0.7); /* Realça a borda ao passar o mouse */
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2); /* Adiciona sombra leve no hover */
+}
+
+/* =====================
+   RODAPÉ
+===================== */
+footer {
+    background: rgba(255, 255, 255, 0.02); /* Fundo translúcido do rodapé */
+    color: rgba(255, 255, 255, 0.7); /* Cor do texto do rodapé */
+    text-align: center; /* Centraliza o conteúdo do rodapé */
+    padding: 24px 16px 40px; /* Espaçamento interno do rodapé */
+    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Linha sutil separando rodapé do conteúdo */
+}
+
+/* =====================
+   TÍTULO COLORIDO
+===================== */
+.titulo-colorido span {
+    font-weight: bold; /* Deixa cada letra do título em negrito */
+}
+
+/* Cores das letras */
+.c1 { color: #ff6b6b; } /* Cor da letra 1 (vermelho coral) */
+.c2 { color: #000000; } /* Cor da letra 2 (preto) */
+.c3 { color: #8de969; } /* Cor da letra 3 (verde suave) */
+.c4 { color: #6ac8ff; } /* Cor da letra 4 (azul claro) */
+.c5 { color: #ffffff; } /* Cor da letra 5 (branco) */
+.c6 { color: #ffaf59; } /* Cor da letra 6 (laranja suave) */
+.c7 { color: #7ef0d2; } /* Cor da letra 7 (turquesa) */
+
+/* =====================
+   MENU HAMBURGUER
+===================== */
+.navbar {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)); /* Fundo sutil com gradiente */
+    padding: 12px 20px; /* Espaçamento interno da navbar */
+    position: sticky; /* Fica no topo ao rolar */
+    top: 0; /* Posiciona no topo */
+    z-index: 100; /* Fica acima do restante do conteúdo */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Linha sutil na base */
+    backdrop-filter: blur(8px); /* Desfoque do fundo para melhor legibilidade */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.navbar__container {
+    max-width: 1200px; /* Limita largura do conteúdo */
+    margin: 0 auto; /* Centraliza */
+    display: flex; /* Layout flexível */
+    justify-content: space-between; /* Espaço entre logo e menu */
+    align-items: center; /* Alinha verticalmente no centro */
+    padding: 0 20px; /* Espaçamento horizontal */
+}
+
+.navbar__logo a {
+    font-size: 22px; /* Tamanho do logo */
+    font-weight: 700; /* Peso da fonte para destaque */
+    color: #ffffff; /* Cor branca */
+    text-decoration: none; /* Remove sublinhado */
+    background: linear-gradient(135deg, #67eda1, #f6b7ff); /* Gradiente de cores */
+    -webkit-background-clip: text; /* Corta o background no texto (Chrome) */
+    background-clip: text; /* Corta o background no texto */
+    -webkit-text-fill-color: transparent; /* Deixa o texto transparente para mostrar o gradiente */
+    font-family: "Playfair Display", serif; /* Fonte elegante */
+    white-space: nowrap; /* Evita quebra de linha */
+}
+
+.navbar__menu {
+    display: flex; /* Layout horizontal do menu */
+    list-style: none; /* Remove pontos da lista */
+    gap: 30px; /* Espaço entre itens */
+}
+
+.navbar__item {
+    position: relative; /* Base para o efeito hover da linha */
+}
+
+.navbar__link {
+    color: rgba(255, 255, 255, 0.85); /* Cor do texto levemente transparente */
+    text-decoration: none; /* Remove sublinhado */
+    font-size: 15px; /* Tamanho da fonte */
+    font-weight: 500; /* Peso médio da fonte */
+    transition: color 0.3s ease; /* Animação suave da cor */
+    position: relative; /* Base para underline animado */
+    white-space: nowrap; /* Evita quebra de linha */
+}
+
+.navbar__link::after {
+    content: ""; /* Cria elemento decorativo */
+    position: absolute; /* Posiciona sob o texto */
+    bottom: -4px; /* Ligeiramente abaixo do texto */
+    left: 0; /* Alinhado à esquerda */
+    width: 0; /* Começa sem largura */
+    height: 2px; /* Espessura da linha */
+    background: linear-gradient(135deg, #67eda1, #f6b7ff); /* Gradiente de cores */
+    transition: width 0.3s ease; /* Animação suave da largura */
+}
+
+.navbar__link:hover {
+    color: #ffffff; /* Texto fica mais opaco no hover */
+}
+
+.navbar__link:hover::after {
+    width: 100%; /* A linha se estende ao passar o mouse */
+}
+
+/* Toggle do menu hamburguer (ícone de 3 linhas) */
+.navbar__toggle {
+    display: none; /* Escondido por padrão */
+    flex-direction: column; /* Organiza as linhas verticalmente */
+    cursor: pointer; /* Mostra que é clicável */
+    gap: 5px; /* Espaço entre as linhas */
+}
+
+.navbar__toggle span {
+    width: 28px; /* Largura de cada linha */
+    height: 3px; /* Altura de cada linha */
+    background: linear-gradient(135deg, #67eda1, #f6b7ff); /* Gradiente de cores */
+    border-radius: 2px; /* Cantos ligeiramente arredondados */
+    transition: all 0.3s ease; /* Transição suave para animação */
+}
+
+.navbar__toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px); /* Primeira linha vira "\" */
+}
+
+.navbar__toggle.active span:nth-child(2) {
+    opacity: 0; /* Segunda linha desaparece */
+}
+
+.navbar__toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -8px); /* Terceira linha vira "/" */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 12px 16px; /* Menos padding em mobile */
+    }
+
+    .navbar__container {
+        padding: 0 8px; /* Menos padding horizontal em mobile */
+    }
+
+    .navbar__toggle {
+        display: flex; /* Mostra o toggle do hamburguer */
+    }
+
+    .navbar__menu {
+        position: absolute; /* Posiciona acima dos outros elementos */
+        top: 100%; /* Abaixo do navbar */
+        left: 0; /* Começa da esquerda */
+        width: 100%; /* Ocupa toda a largura */
+        background: linear-gradient(135deg, rgba(96, 196, 205, 0.98), rgba(36, 5, 51, 0.98)); /* Fundo com o tema do site */
+        flex-direction: column; /* Menu em coluna */
+        gap: 0; /* Sem gap entre itens */
+        max-height: 0; /* Começa contraído */
+        overflow: hidden; /* Esconde conteúdo que ultrapassa */
+        transition: max-height 0.3s ease; /* Animação suave da altura */
+        list-style: none; /* Remove pontos */
+        border-top: 1px solid rgba(255, 255, 255, 0.1); /* Linha sutil no topo */
+    }
+
+    .navbar__menu.active {
+        max-height: 400px; /* Expande quando o toggle é clicado */
+    }
+
+    .navbar__item {
+        padding: 14px 20px; /* Espaçamento interno dos itens */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Linha sutil entre itens */
+    }
+
+    .navbar__link {
+        display: block; /* Itens ocupam toda a linha */
+        color: rgba(255, 255, 255, 0.9); /* Texto um pouco mais opaco */
+        font-size: 16px; /* Fonte maior no mobile */
+    }
+
+    .navbar__link::after {
+        display: none; /* Remove a animação do underline no mobile */
+    }
+
+    .navbar__link:hover {
+        color: #ffffff; /* Texto fica branco no hover */
+        padding-left: 10px; /* Indentação leve no hover */
+        transition: all 0.3s ease;
+    }
+
+    /* Galeria em coluna única no mobile */
+    .galeria {
+        grid-template-columns: 1fr; /* Uma coluna só no mobile */
+        padding: 30px 16px 40px; /* Ajusta padding para mobile */
+        gap: 20px; /* Espaço menor entre cards */
+    }
+}
